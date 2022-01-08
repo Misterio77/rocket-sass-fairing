@@ -3,28 +3,22 @@
 //! use rocket::{launch, get, routes};
 //! use rocket_sass_fairing::SassSheet;
 //!
-//! #[rocket::main]
-//! async fn main() {
+//! #[launch]
+//! fn rocket() -> _ {
 //!     rocket::build()
 //!         .attach(SassSheet::fairing())
 //!         .mount("/", routes![style])
-//!         .launch()
-//!         .await;
 //! }
 //!
 //! #[get("/assets/style.css")]
 //! async fn style(sheet: &SassSheet) -> &SassSheet { sheet }
-//! 
+//! #
 //! # use rocket::local::blocking::Client;
 //! # use rocket::http::Status;
-//! 
-//! # #[test]
-//! # fn rewrites() {
-//! #     let client = Client::tracked(rocket()).expect("valid rocket instance");
-//! #     let response = client.get("/assets/style.css").dispatch();
-//! #     assert_eq!(response.status(), Status::Ok);
-//! #     assert_eq!(response.into_string().unwrap(), "a b{color:a b}");
-//! # }
+//! # let client = Client::tracked(rocket()).expect("valid rocket instance");
+//! # let response = client.get("/assets/style.css").dispatch();
+//! # assert_eq!(response.status(), Status::Ok);
+//! # assert_eq!(response.into_string().unwrap(), "a b{color:a b}");
 //! ```
 use normpath::PathExt;
 use rocket::{
