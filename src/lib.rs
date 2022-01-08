@@ -85,9 +85,7 @@ impl Fairing for SassSheetFairing {
             }
         };
 
-        info!("Compiling sass... file {}", path.display());
-        println!("Compiling sass... file {}", path.display());
-
+        info!("Compiling sass file '{}'...", relative_path.display());
         let options = grass::Options::default().style(grass::OutputStyle::Compressed);
         let compiled_css = match grass::from_path(&path.to_string_lossy(), &options) {
             Ok(css) => css,
