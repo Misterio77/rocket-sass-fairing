@@ -1,0 +1,21 @@
+[package]
+name = "rocket-sass-fairing"
+version = "0.1.0-pre1"
+edition = "2018"
+license = "MIT"
+authors = [ "Gabriel Fontes <eu@misterio.me>" ]
+description = "A rocket fairing for easily serving compiled sass with cache policy"
+readme = "README.md"
+repository = "https://github.com/misterio77/rocket-sass-fairing"
+categories = [ "development-tools", "web-programming" ]
+keywords = [ "rocket", "sass", "fairing" ]
+
+[dependencies.rocket]
+version = "0.5.0-rc.1"
+
+[dependencies.grass]
+version = "0.10"
+default-features = false
+
+[dependencies.normpath]
+version = "0.3"
